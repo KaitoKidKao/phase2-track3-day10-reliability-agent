@@ -1,5 +1,7 @@
 # Day 10 Reliability Report (Updated)
 
+## Nguyễn Trí Cao - 2A202600223
+
 ## 1. Architecture summary
 
 Hệ thống Gateway sử dụng cơ chế bảo vệ đa tầng để đảm bảo tính sẵn sàng cao cho AI Agent:

@@ -28,24 +28,26 @@ Class time is 2 hours, but the lab is designed for 4 hours total.
 
 Strong students should complete the core path in about 2 hours and use the extra time for stretch tasks.
 
-## Quickstart
+## Quickstart (Dành cho Windows/PowerShell)
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
+```powershell
+# 1. Tạo và kích hoạt môi trường ảo
+python -m venv venv
+.\venv\Scripts\activate
+
+# 2. Cài đặt các gói phụ thuộc
 pip install -e ".[dev]"
 
-# Start Redis for shared cache (requires Docker)
-make docker-up
+# 3. Khởi động Redis (Yêu cầu Docker) - Chỉ khi muốn test Shared Cache
+docker compose up -d redis
 
-# Run tests — some will xfail/skip until you implement TODOs
-make test
+# 4. Chạy các bài kiểm tra (Tests)
+pytest
 
-# Run chaos simulation and generate metrics JSON
-make run-chaos
+# 5. Chạy mô phỏng lỗi (Chaos Simulation) để thu thập Metrics
+# Lệnh này sẽ tạo ra file reports/metrics.json
+python scripts/run_chaos.py
 
-# Generate report from metrics
-make report
 ```
 
 ## Repository structure
